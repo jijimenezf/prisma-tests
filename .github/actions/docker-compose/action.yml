@@ -4,9 +4,6 @@ description: 'Sets up docker-compose'
 runs:
   using: 'composite'
   steps:
-    - name: Download Docker-Compose plugin
-      shell:  bash
-      run:  curl -SL https://github.com/docker/compose/releases/v2.16.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-    - name: Make plugin executable
-      shell: bash
-      run: sudo chmod +x /usr/local/bin/docker-compose
+    - uses: KengoTODA/actions-setup-docker-compose@v1
+      with:
+        version: '2.14.2' # the full version of `docker-compose` command
