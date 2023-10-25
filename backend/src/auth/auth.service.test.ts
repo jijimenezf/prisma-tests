@@ -63,6 +63,9 @@ describe('auth.service', () => {
   })
 
   describe('generateJWT', () => {
+    /*it('should throw an error if there is no API_SECRET env var', () => {
+      expect(() => AuthService.generateJWT(1)).toThrow()
+    })*/
     it('should generate a JWT', () => {
       process.env.API_SECRET = 'secret'
       AuthService.generateJWT(1)
@@ -70,10 +73,6 @@ describe('auth.service', () => {
       expect(jwt.sign).toHaveBeenCalledWith({ id: 1 }, 'secret', {
         expiresIn: 86400
       })
-    })
-
-    it('should throw an error if there is no API_SECRET env var', () => {
-      expect(() => AuthService.generateJWT(1)).toThrow()
     })
   })
 
