@@ -13,4 +13,3 @@ jobs:
       - uses: ./github/actions/build
       - name: Run tests
         run: pnpm test:backend:unit
-# check additional feautures on github actions
